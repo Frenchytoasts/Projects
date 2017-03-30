@@ -19,7 +19,7 @@ function draw() {
      var isShifted = false;
      
      var y = height;
-     while (y <= height) {
+     while (y >= 0) {
           
           var x;
           
@@ -30,8 +30,8 @@ function draw() {
           }
           
           while (x <= width) {
-               fill(color(255, 0, 0));
-               stroke(color(0, 255, 0));
+               fill(color(rVal, gVal, bVal));
+               stroke(color(rVal, gVal, bVal));
                ellipse(x, 0, circleDiameter, circleDiameter)
                x = x + circleDiameter;
           }
@@ -43,4 +43,11 @@ function draw() {
           gVal = gVal + 7;
           bVal = bVal + 3;
      }
+}
+
+function keyPressed() {
+     if (keyCode === 15 || keyCode === 83) {
+          saveCanvas('geometricPattern', 'png');
+     }
+     return false;
 }
