@@ -13,9 +13,9 @@ function preload() {
 
 function setup() {
      createCanvas(256,256);
-     player = createSprite(width/2, height-25);
+     player = createSprite(width/2, height - (playerImage.height/2), 0, 0);
      player.addImage(playerImage);
-     enemy = createSprite(width/2, 0);
+     enemy = createSprite(width/2, 0, 0, 0);
      enemy.addImage(enemyImage);
      enemy.rotationSpeed = 4.0;
      isGameOver = false;
@@ -35,11 +35,11 @@ function draw() {
      background(backgroundImage);
      
      if (keyDown(RIGHT_ARROW) && player.position.x < (playerImage.width/2)) {
-          player.position.x = player.position.x += 2;
+          player.position.x += 2;
      }
      
      if (keyDown(LEFT_ARROW) && player.position.x > (playerImage.width/2)) {
-          player.position.x = player.position.x -= 2;
+          player.position.x -= 2;
      }
      
      enemy.position.y = enemy.position.y + 3;
@@ -62,11 +62,9 @@ function gameOver() {
 }
 
 function mouseClicked() {
-     if (isGameOver) {
           isGameOver = false;
           player.position.x = width/2;
           player.position.y = height-25;
           enemy.position.x = width/2;
           enemy.position.y = 0;
-     }
 }
