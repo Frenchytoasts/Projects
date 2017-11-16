@@ -8,7 +8,7 @@ var gVal;
 var bVal;
 
 function setup() {
-     createCanvas(480, 600);
+     createCanvas(480, 1200);
      
      frameRate(30);
      

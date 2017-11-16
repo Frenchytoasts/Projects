@@ -3,7 +3,7 @@
     authDomain: "chat-app-22349.firebaseapp.com",
     databaseURL: "https://chat-app-22349.firebaseio.com",
     projectId: "chat-app-22349",
-    storageBucket: "",
+    storageBucket: "https://chat-app-22349.firebaseio.com/",
     messagingSenderId: "297983316811"
   };
   firebase.initializeApp(config);
@@ -19,6 +19,8 @@
    }
   }
   
+   $('#messageInput:').keypress(pushMessage);
+   
   chatData.on("child_added", showMessage);
   
   function showMessage(msg) {
@@ -34,5 +36,4 @@
    messageEl.append(contentEl);
    $('#messages').append(messageEl);
   }
-  
-  $('#messageInput:').keypress(pushMessage);
+ 
